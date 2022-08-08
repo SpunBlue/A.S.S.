@@ -1,0 +1,5 @@
+export/
+.vscode/
+backup source/OptionsMenu OG.hx
+lime/
+.DS_Store
