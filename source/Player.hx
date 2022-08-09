@@ -21,6 +21,7 @@ class Player extends FlxSprite
 		animation.play("idle");
 
 		acceleration.y = gravity;
+		antialiasing = false;
 	}
 
 	public function movement()
@@ -48,9 +49,14 @@ class Player extends FlxSprite
 		if (left || right)
 			animation.play('walk');
 
-		if (left && flipX == false)
+		if (left && facing != LEFT)
+			facing = LEFT;
+		else if (right && facing != RIGHT)
+			facing = RIGHT;
+
+		if (facing == LEFT && flipX == false)
 			flipX = true;
-		else if (right && flipX == true)
+		else if (facing == RIGHT && flipX == true)
 			flipX = false;
 	}
 
